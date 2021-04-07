@@ -7,5 +7,5 @@ class Product < ApplicationRecord
     message: 'URL должен указывать на изображение формата GIF, JPG или PNG.'
   }
   validates :price, numericality: { greater_than_or_equal_to: 0.01 }
-
+  validates :title, length: { minimum: 10 }
 end
