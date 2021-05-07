@@ -4,6 +4,7 @@ class ProductTest < ActiveSupport::TestCase
   fixtures :products
 
   test "product attributes must not be empty" do
+    #свойства товара не должны оставаться пустыми
     product = Product.new
     assert product.invalid?
     assert product.errors[:title].any?
@@ -13,6 +14,7 @@ class ProductTest < ActiveSupport::TestCase
   end
 
     test "product price must be positive" do
+      # цена товара должна быть положительной
       product = Product.new(title: "My Book Title",
                             description: "yyy",
                             image_url: "zzz.jpg")
@@ -37,25 +39,33 @@ class ProductTest < ActiveSupport::TestCase
                   image_url: image_url)
     end
     test "image url" do
+      # url изображения
       ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg
   http://a.b.c/x/y/z/fred.gif }
       bad = %w{ fred.doc fred.gif/more fred.gif.more }
       ok.each do |image_url|
         assert new_product(image_url).valid?,
                "#{image_url} shouldn't be invalid"
+                # не должно быть неприемлемым
       end
       bad.each do |image_url|
         assert new_product(image_url).invalid?,
                "#{image_url} shouldn't be valid"
+                # не должно быть приемлемым
       end
     end
 
   test "product is not valid without a unique title" do
+    # если у товара нет уникального названия, то он недопустим
     product = Product.new(title: products(:ruby).title,
                           description: "yyy",
                           price: 1,
                           image_url: "fred.gif")
     assert product.invalid?
     assert_equal ["has already been taken"], product.errors[:title]
+                      # уже было использовано
+                      # или так, для использования
+                      # сообщение из встроенной таблицы ошибок
+    # assert_equal [I18n.translate('errors.messages.taken')], product.errors[:title]
   end
 end
