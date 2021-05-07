@@ -21,3 +21,19 @@ skills for communicating, information, and fun.
 </p>},
                 image_url: 'dpchat.jpg',
                 price: 20.00)
+# . . .
+Product.create!(title: 'Programming Crystal',
+                description:
+                  %{<p>
+      <em>Create High-Performance, Safe, Concurrent Apps</em>
+      Crystal is for Ruby programmers who want more performance or for
+      developers who enjoy working in a high-level scripting environment. Crystal
+      combines native execution speed and concurrency with Ruby-like syntax, so
+      you will feel right at home. This book, the first available on Crystal,
+      shows you how to write applications that have the beauty and elegance of a
+      modern language, combined with the power of types and modern concurrency
+      tooling. Now you can write beautiful code that runs faster, scales better,
+      and is a breeze to deploy.
+      </p>},
+                image_url: 'crystal.jpg',
+                price: 40.00)
