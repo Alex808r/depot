@@ -8,8 +8,8 @@
   </head>
   <body>
     <header class="main">
-    <%= image_tag 'logo.svg', alt: 'The Pragmatic Bookshelf' %>
-    <h1><%= @page_title %></h1>
+      <%= image_tag 'logo.svg', alt: 'The Pragmatic Bookshelf' %>
+      <h1><%= @page_title %></h1>
     </header>
       <section class="content">
         <nav class="side_nav">
@@ -20,9 +20,9 @@
           <li><a href="/contact">Contact</a></li>
           </ul>
         </nav>
-    <main class='<%= controller.controller_name %>'>
-      <%= yield %>
-    </main>
+        <main class='<%= controller.controller_name %>'>
+          <%= yield %>
+        </main>
       </section>
   </body>
 </html>

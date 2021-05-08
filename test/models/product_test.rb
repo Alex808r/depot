@@ -20,14 +20,12 @@ class ProductTest < ActiveSupport::TestCase
                             image_url: "zzz.jpg")
       product.price = -1
       assert product.invalid?
-      assert_equal ["must be greater than or equal to 0.01"],
-                   product.errors[:price]
-      # должна быть больше или равна 0.01
+      assert_equal ["must be greater than or equal to 0.01"], product.errors[:price]
+                        # должна быть больше или равна 0.01
       product.price = 0
       assert product.invalid?
-      assert_equal ["must be greater than or equal to 0.01"],
-                   product.errors[:price]
-      # должна быть больше 0
+      assert_equal ["must be greater than or equal to 0.01"], product.errors[:price]
+                          # должна быть больше 0
       product.price = 1
       assert product.valid?
     end
@@ -46,12 +44,12 @@ class ProductTest < ActiveSupport::TestCase
       ok.each do |image_url|
         assert new_product(image_url).valid?,
                "#{image_url} shouldn't be invalid"
-                # не должно быть неприемлемым
+                         # не должно быть неприемлемым
       end
       bad.each do |image_url|
         assert new_product(image_url).invalid?,
                "#{image_url} shouldn't be valid"
-                # не должно быть приемлемым
+                        # не должно быть приемлемым
       end
     end
 
@@ -64,8 +62,9 @@ class ProductTest < ActiveSupport::TestCase
     assert product.invalid?
     assert_equal ["has already been taken"], product.errors[:title]
                       # уже было использовано
-                      # или так, для использования
-                      # сообщение из встроенной таблицы ошибок
+
+                      # текст ошибки можно изменить с фиксированного на
+                      # сообщение из встроенной таблицы ошибок, запись будет такая:
     # assert_equal [I18n.translate('errors.messages.taken')], product.errors[:title]
   end
 end

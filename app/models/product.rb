@@ -9,7 +9,12 @@ class Product < ApplicationRecord
   }
 
   validates :price, numericality: { greater_than_or_equal_to: 0.01 }
+
   validates :title, length: { minimum: 10 }
+  #Ключ проверки приемлемости :length проверяет длину свойства модели.
+  # Добавьте эту проверку приемлемости к модели Product,
+  # чтобы проверить, что в названии товара присутствует не менее 10 символов
+
 
   has_many :line_items
   before_destroy :ensure_not_referenced_by_any_line_item
