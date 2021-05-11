@@ -1,6 +1,11 @@
 class LineItem < ApplicationRecord
   belongs_to :product
   belongs_to :cart
+
+
+  def total_price
+    product.price * quantity
+  end
 end
 
 #Запомнить, где именно нужно постить инструкцию belongs_to, несложно:
