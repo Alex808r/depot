@@ -16,16 +16,22 @@ class Product < ApplicationRecord
   # чтобы проверить, что в названии товара присутствует не менее 10 символов
 
 
+  #Здесь объявляется, что у товара много товарных позиций,
+  #и определяется подключаемый метод по имени ensure_not_referenced_by_any_line_item().
+  # Подключаемым называется такой метод, который Rails вызывает автоматически в определенный
+  # момент жизни объекта. В данном случае метод будет вызван перед тем,
+  # как Rails попытается удалить строку в базе данных.
+  #Если подключаемый метод возвращает false, строка не будет удалена.
+
   has_many :line_items
   before_destroy :ensure_not_referenced_by_any_line_item
-
-
   private
-  # ensure that there are no line items referencing this product
+  # убеждаемся в отсутствии товарных позиций, ссылающихся на данный товар
   def ensure_not_referenced_by_any_line_item
     unless line_items.empty?
-    errors.add(:base, 'Line Items present')
+    errors.add(:base, 'существуют товарные позиции')
     throw :abort
     end
   end
 end
+
