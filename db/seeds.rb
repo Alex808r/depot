@@ -5,7 +5,24 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Product.delete_all
 
+Product.create!(title: 'Docker for Rails Developers',
+                description:
+                  %{<p>
+      <em>Build, Ship, and Run Your Applications Everywhere</em>
+      Docker does for DevOps what Rails did for web development—it gives you
+      a new set of superpowers. Gone are “works on my machine” woes and lengthy
+      setup tasks, replaced instead by a simple, consistent, Docker-based
+      development environment that will have your team up and running in seconds.
+      Gain hands-on, real-world experience with a tool that’s rapidly becoming
+      fundamental to software development. Go from zero all the way to production
+      as Docker transforms the massive leap of deploying your app in the cloud
+      into a baby step.
+      </p>},
+                image_url: 'ridocker.jpg',
+                price: 38.00)
+# . . .
 Product.create!(title: 'Build Chatbot Interactions',
                 description: %{<p>
 <em>Responsive, Intuitive Interfaces with Ruby</em>
