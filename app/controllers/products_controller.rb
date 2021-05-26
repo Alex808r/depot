@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  #контроллер для работы на стороне продавца
+
   before_action :set_product, only: %i[ show edit update destroy ]
 
   # GET /products or /products.json

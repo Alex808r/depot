@@ -1,4 +1,6 @@
 class StoreController < ApplicationController
+  #контроллер для работы на стороне покупателя
+
   include CurrentCart
   before_action :set_cart
 
