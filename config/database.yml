@@ -27,3 +27,5 @@ test:
 production:
   <<: *default
   database: db/production.postgresql
+
+  #heroku addons:create heroku-postgresql - если на хероку не создалась база данных pg
