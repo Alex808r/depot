@@ -22,7 +22,7 @@ class Product < ApplicationRecord
   # момент жизни объекта. В данном случае метод будет вызван перед тем,
   # как Rails попытается удалить строку в базе данных.
   #Если подключаемый метод возвращает false, строка не будет удалена.
-
+  has_many :orders, through: :line_items
   has_many :line_items
   before_destroy :ensure_not_referenced_by_any_line_item
   private
