@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+  get 'sessions/new'
+  get 'sessions/create'
+  get 'sessions/destroy'
   resources :users
   resources :orders
   root 'store#index', as: 'store_index' # устанавливаем корневой маршрут. as :'store_index' добавит методы
