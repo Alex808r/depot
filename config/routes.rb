@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :orders
   root 'store#index', as: 'store_index' # устанавливаем корневой маршрут. as :'store_index' добавит методы
                                                    # store_index_path and store_index_url
