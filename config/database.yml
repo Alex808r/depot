@@ -24,8 +24,12 @@ test:
   timeout: 3000
   # этими 3 строками
 
+#production:
+ # <<: *default
+  #database: db/production.postgresql
+
 production:
-  <<: *default
-  database: db/production.postgresql
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
 
   #heroku addons:create heroku-postgresql - если на хероку не создалась база данных pg
